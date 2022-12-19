@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DI
 import IQKeyboardManagerSwift
 
 @main

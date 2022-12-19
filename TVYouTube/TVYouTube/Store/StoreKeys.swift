@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Store
 
 enum StoreKey: String {
     case unknown

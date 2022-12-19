@@ -8,8 +8,7 @@ strings:
           publicAccess: true
 
 xcassets:
-  - inputs:
-    - TVYouTube/Resources/Assets/Assets.xcassets
+  - inputs: TVYouTube/Resources/Assets/Assets.xcassets
     outputs:
       - templatePath: swiftgen_templates/assets.stencil
         output: TVYouTube/Resources/Generated/AppAssets.generated.swift
