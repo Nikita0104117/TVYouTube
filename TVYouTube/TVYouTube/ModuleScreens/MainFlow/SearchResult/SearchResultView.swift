@@ -1,15 +1,15 @@
 //
-//  MainView.swift
+//  SearchResultView.swift
 //  TVYouTube
 //
-//  Created Nikita Omelchenko on 18.12.2022.
+//  Created Nikita Omelchenko on 19.12.2022.
 //  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
 import SnapKit
 
-private typealias Module = MainModule
+private typealias Module = SearchResultModule
 private typealias View = Module.View
 
 extension Module {
@@ -17,6 +17,8 @@ extension Module {
         // MARK: - UI Elements
         private(set) lazy var contentTableView: UITableView = build(.init(frame: .zero, style: .plain)) {
             $0.separatorStyle = .none
+
+            $0.register(SearchResultTableViewCell.self)
         }
 
         // MARK: - Init

@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 protocol ProductService {
-//    func getProducts(completion: @escaping (Result<[ProductEntity], Error>) -> Void)
+    func getProducts(completion: @escaping (Result<[ResponseModels.ProductModel], Error>) -> Void)
 }
 
 extension RequestRouter {

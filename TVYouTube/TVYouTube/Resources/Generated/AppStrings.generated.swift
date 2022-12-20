@@ -20,9 +20,28 @@ public enum AppLocale {
     public static var currentLanguageCode: String = "en"
 
 
-  public enum General {
-      /// Offline mode
-      public static let offlinemode: String = AppLocale.tr("Localize", "general.offlinemode")
+  public enum Main {
+      /// Home Screen
+      public static let title: String = AppLocale.tr("Localize", "main.title")
+    public enum Section {
+        /// Section Five
+        public static let five: String = AppLocale.tr("Localize", "main.section.five")
+        /// Section Four
+        public static let four: String = AppLocale.tr("Localize", "main.section.four")
+        /// Section One
+        public static let one: String = AppLocale.tr("Localize", "main.section.one")
+        /// Section Three
+        public static let three: String = AppLocale.tr("Localize", "main.section.three")
+        /// Section Two
+        public static let two: String = AppLocale.tr("Localize", "main.section.two")
+    }
+  }
+
+  public enum Mock {
+      /// info about film, info about film info about film, info about filminfo about film, info about film
+      public static let info: String = AppLocale.tr("Localize", "mock.info")
+      /// Film
+      public static let title: String = AppLocale.tr("Localize", "mock.title")
   }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length

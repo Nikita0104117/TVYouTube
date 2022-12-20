@@ -1,12 +1,14 @@
 //
-//  MainController.swift
+//  SearchResultController.swift
+//  TVYouTube
 //
-//  Created Nikita Omelchenko
+//  Created Nikita Omelchenko on 19.12.2022.
+//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
 
-private typealias Module = MainModule
+private typealias Module = SearchResultModule
 private typealias Controller = Module.Controller
 
 extension Module {
@@ -15,14 +17,7 @@ extension Module {
         var output: ControllerOutput?
         var viewOutput: ViewOutput?
 
-        var searchResultViewController: UIViewController?
-
         // MARK: - Properties
-        private lazy var searchController: UISearchController = build(
-            .init(searchResultsController: searchResultViewController)
-        ) {
-            $0.searchResultsUpdater = searchResultViewController as? UISearchResultsUpdating
-        }
 
         // MARK: - Init
         required init?(coder: NSCoder) {
@@ -51,6 +46,7 @@ extension Module {
             output?.willAppear()
         }
 
+
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
 
@@ -67,15 +63,7 @@ extension Module {
 
 private extension Controller {
     private func commonSetup() {
-        title = AppLocale.Main.title
-
-        navigationCommonSetup()
         setTableViewDelegate()
-    }
-
-    private func navigationCommonSetup() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.searchController = searchController
     }
 
     // MARK: - Setup Delegates
@@ -98,19 +86,30 @@ extension Controller: UITableViewDataSource, UITableViewDelegate {
         UITableView.automaticDimension
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        output?.dataSource[section].titile
-    }
-
     func numberOfSections(in tableView: UITableView) -> Int {
-        output?.dataSource.count ?? 0
+        1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        output?.dataSource[section].numberOfCells ?? 0
+        output?.dataSource.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        .init()
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.reusebleId, for: indexPath) as? SearchResultTableViewCell,
+            let product: ObjectEntity = output?.dataSource[safe: indexPath.item]
+        else { return .init() }
+
+        cell.conifgCell(with: product)
+
+        return cell
+    }
+}
+
+extension Controller: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+
+        output?.searchProduct(searchText)
     }
 }

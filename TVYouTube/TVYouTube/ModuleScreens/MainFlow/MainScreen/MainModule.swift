@@ -15,18 +15,53 @@ struct MainModule {
     typealias InteractorInput = MainInteractorInputProtocol
     typealias InteractorOutput = MainInteractorOutputProtocol
     typealias RouterInput = MainRouterInputProtocol
+
+    enum Sections: CaseIterable {
+        case one
+        case two
+        case three
+        case four
+        case five
+    }
+}
+
+extension MainModule.Sections {
+    var titile: String {
+        switch self {
+            case .one:
+                return AppLocale.Main.Section.one
+            case .two:
+                return AppLocale.Main.Section.two
+            case .three:
+                return AppLocale.Main.Section.three
+            case .four:
+                return AppLocale.Main.Section.four
+            case .five:
+                return AppLocale.Main.Section.five
+        }
+    }
+
+    var numberOfCells: Int { 1 }
 }
 
 // MARK: - Assembly
-protocol MainAssemblyProtocol: BaseAssembly { }
+protocol MainAssemblyProtocol: BaseAssembly {
+    var searchResultViewController: UIViewController? { get set }
+}
 
 // MARK: - Controller
-protocol MainControllerInputProtocol: BaseControllerInput { }
+protocol MainControllerInputProtocol: BaseControllerInput {
+    func reloadData()
+}
 
-protocol MainControllerOutputProtocol: BaseControllerOutput { }
+protocol MainControllerOutputProtocol: BaseControllerOutput {
+    var dataSource: [MainModule.Sections] { get }
+}
 
 // MARK: - View
-protocol MainViewOutputProtocol: BaseViewOutput { }
+protocol MainViewOutputProtocol: BaseViewOutput {
+    var contentTableView: UITableView { get }
+}
 
 // MARK: - Interactor
 protocol MainInteractorInputProtocol { }

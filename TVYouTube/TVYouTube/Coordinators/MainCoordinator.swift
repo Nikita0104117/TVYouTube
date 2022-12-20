@@ -13,9 +13,26 @@ protocol Coordinator {
 }
 
 class MainCoordinator: Coordinator {
+    // MARK: - Injecte Modules
     @Injected(.lazily) var mainScreen: MainModule.ModuleAssemblying!
+    @Injected(.lazily) var searchResultAssembly: SearchResultModule.ModuleAssemblying!
+
+    // MARK: - Injecte Services
+    @Injected(.lazily) var productService: ProductService!
 
     func start() -> UIViewController {
-        mainScreen.assemble()
+       UINavigationController(rootViewController: configMainScreen())
+    }
+
+    private func configMainScreen() -> UIViewController {
+        mainScreen.searchResultViewController = configSearchResultScreen()
+
+        return mainScreen.assemble()
+    }
+
+    private func configSearchResultScreen() -> UIViewController {
+        searchResultAssembly.productService = productService
+
+        return searchResultAssembly.assemble()
     }
 }

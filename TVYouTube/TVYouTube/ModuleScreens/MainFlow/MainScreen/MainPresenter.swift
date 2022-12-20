@@ -19,6 +19,10 @@ extension Module {
         var interactor: InteractorInput?
         var router: RouterInput?
 
+        // MARK: - Properties
+        private(set) var dataSource: [MainModule.Sections] = MainModule.Sections.allCases
+
+        // MARK: - Init
         required init() { }
     }
 }

@@ -13,24 +13,31 @@ public class MockContainerFactory {
     public init() {
         Container.lookupPolicy = SingletonContainer(build())
     }
+
     // MARK: - Storages
     private lazy var userDefaultsStore = UserDefaultsStore()
     private lazy var keychainStore = KeychainStore()
 
     // MARK: - Modules
-//    private lazy var productListAssembly: ProductListModule.ModuleAssembly = .init()
+    private lazy var mainAssembly: MainModule.ModuleAssembly = .init()
+    private lazy var searchResultAssembly: SearchResultModule.ModuleAssembly = .init()
 
     // MARK: - Services
-//    private lazy var productService: ProductService = MockProductService()
+    private lazy var productService: ProductService = MockProductService()
 
-    private func build() -> Container {
-        let container = Container()
+    public func build() -> Container {
+        let container = Container(name: String(describing: Self.self))
+
+        // MARK: - Storages
+        container.register { [userDefaultsStore] () -> StoreProtocol in userDefaultsStore }
+        container.register { [keychainStore] () -> StoreProtocol in keychainStore }
 
         // MARK: - Modules
-//        container.register { [productListAssembly] () -> ProductListModule.ModuleAssemblying in productListAssembly }
+        container.register { [mainAssembly] () -> MainModule.ModuleAssemblying in mainAssembly }
+        container.register { [searchResultAssembly] () -> SearchResultModule.ModuleAssemblying in searchResultAssembly }
 
         // MARK: - Services
-//        container.register { [productService] () -> ProductService in productService }
+        container.register { [productService] () -> ProductService in productService }
 
         return container
     }

@@ -87,6 +87,15 @@
 		B45A18E429508575004DD1E9 /* RestContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B44AE760294CA7EA002FF899 /* RestContainerFactory.swift */; };
 		B45A18E62950868E004DD1E9 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18E52950868E004DD1E9 /* StoreManager.swift */; };
 		B45A18E8295086A8004DD1E9 /* StoreKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18E7295086A8004DD1E9 /* StoreKeys.swift */; };
+		B45A18F12950CF4D004DD1E9 /* SearchResultModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18EA2950CF4D004DD1E9 /* SearchResultModule.swift */; };
+		B45A18F22950CF4D004DD1E9 /* SearchResultPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18EB2950CF4D004DD1E9 /* SearchResultPresenter.swift */; };
+		B45A18F32950CF4D004DD1E9 /* SearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18EC2950CF4D004DD1E9 /* SearchResultRouter.swift */; };
+		B45A18F42950CF4D004DD1E9 /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18ED2950CF4D004DD1E9 /* SearchResultController.swift */; };
+		B45A18F52950CF4D004DD1E9 /* SearchResultAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18EE2950CF4D004DD1E9 /* SearchResultAssembly.swift */; };
+		B45A18F62950CF4D004DD1E9 /* SearchResultInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18EF2950CF4D004DD1E9 /* SearchResultInteractor.swift */; };
+		B45A18F72950CF4D004DD1E9 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18F02950CF4D004DD1E9 /* SearchResultView.swift */; };
+		B45A18FA29512D99004DD1E9 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18F929512D99004DD1E9 /* SearchResultTableViewCell.swift */; };
+		B45A18FD29512E6C004DD1E9 /* ObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A18FC29512E6C004DD1E9 /* ObjectEntity.swift */; };
 		B4AD8113294491800086F9E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8112294491800086F9E7 /* AppDelegate.swift */; };
 		B4AD8115294491800086F9E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8114294491800086F9E7 /* SceneDelegate.swift */; };
 		B4AD811C294491820086F9E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AD811B294491820086F9E7 /* Assets.xcassets */; };
@@ -189,6 +198,15 @@
 		B45A1890294FB896004DD1E9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B45A18E52950868E004DD1E9 /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreManager.swift; path = TVYouTube/Core/Store/StoreManager.swift; sourceTree = SOURCE_ROOT; };
 		B45A18E7295086A8004DD1E9 /* StoreKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreKeys.swift; path = TVYouTube/Store/StoreKeys.swift; sourceTree = SOURCE_ROOT; };
+		B45A18EA2950CF4D004DD1E9 /* SearchResultModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultModule.swift; sourceTree = "<group>"; };
+		B45A18EB2950CF4D004DD1E9 /* SearchResultPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultPresenter.swift; sourceTree = "<group>"; };
+		B45A18EC2950CF4D004DD1E9 /* SearchResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRouter.swift; sourceTree = "<group>"; };
+		B45A18ED2950CF4D004DD1E9 /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
+		B45A18EE2950CF4D004DD1E9 /* SearchResultAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultAssembly.swift; sourceTree = "<group>"; };
+		B45A18EF2950CF4D004DD1E9 /* SearchResultInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultInteractor.swift; sourceTree = "<group>"; };
+		B45A18F02950CF4D004DD1E9 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		B45A18F929512D99004DD1E9 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		B45A18FC29512E6C004DD1E9 /* ObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectEntity.swift; sourceTree = "<group>"; };
 		B4AD810F294491800086F9E7 /* TVYouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVYouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AD8112294491800086F9E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AD8114294491800086F9E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -541,6 +559,8 @@
 		B45A1889294FB85F004DD1E9 /* MainFlow */ = {
 			isa = PBXGroup;
 			children = (
+				B45A18FB29512E43004DD1E9 /* Entity */,
+				B45A18E92950CF1F004DD1E9 /* SearchResult */,
 				B45A1898294FBAC6004DD1E9 /* MainScreen */,
 			);
 			path = MainFlow;
@@ -580,6 +600,37 @@
 				B45A1815294F6258004DD1E9 /* NetworkingUI */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		B45A18E92950CF1F004DD1E9 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				B45A18F829512D76004DD1E9 /* Cells */,
+				B45A18EA2950CF4D004DD1E9 /* SearchResultModule.swift */,
+				B45A18EE2950CF4D004DD1E9 /* SearchResultAssembly.swift */,
+				B45A18F02950CF4D004DD1E9 /* SearchResultView.swift */,
+				B45A18ED2950CF4D004DD1E9 /* SearchResultController.swift */,
+				B45A18EB2950CF4D004DD1E9 /* SearchResultPresenter.swift */,
+				B45A18EF2950CF4D004DD1E9 /* SearchResultInteractor.swift */,
+				B45A18EC2950CF4D004DD1E9 /* SearchResultRouter.swift */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		B45A18F829512D76004DD1E9 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B45A18F929512D99004DD1E9 /* SearchResultTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B45A18FB29512E43004DD1E9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B45A18FC29512E6C004DD1E9 /* ObjectEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		B4AD8106294491800086F9E7 = {
@@ -772,6 +823,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B45A18FD29512E6C004DD1E9 /* ObjectEntity.swift in Sources */,
 				B45A18E229508575004DD1E9 /* Style.swift in Sources */,
 				B45A18E329508575004DD1E9 /* MockContainerFactory.swift in Sources */,
 				B45A18E429508575004DD1E9 /* RestContainerFactory.swift in Sources */,
@@ -783,15 +835,20 @@
 				B45A16FC294F3E7B004DD1E9 /* BaseRestService.swift in Sources */,
 				B4AD8113294491800086F9E7 /* AppDelegate.swift in Sources */,
 				B45A1702294F3E7B004DD1E9 /* UIDevice+Extension.swift in Sources */,
+				B45A18F22950CF4D004DD1E9 /* SearchResultPresenter.swift in Sources */,
 				B45A170A294F3E7B004DD1E9 /* NetworkingAuthenticator.swift in Sources */,
 				B45A176B294F4121004DD1E9 /* BaseViewProtocols.swift in Sources */,
+				B45A18F72950CF4D004DD1E9 /* SearchResultView.swift in Sources */,
 				B45A1699294F34AD004DD1E9 /* Style+Label.swift in Sources */,
+				B45A18F32950CF4D004DD1E9 /* SearchResultRouter.swift in Sources */,
+				B45A18F42950CF4D004DD1E9 /* SearchResultController.swift in Sources */,
 				B45A1757294F403B004DD1E9 /* UIStackView+Extension.swift in Sources */,
 				B45A1897294FB896004DD1E9 /* MainView.swift in Sources */,
 				B45A1887294FB7B3004DD1E9 /* AppAssets.generated.swift in Sources */,
 				B45A1891294FB896004DD1E9 /* MainModule.swift in Sources */,
 				B45A16FF294F3E7B004DD1E9 /* AuthenticatorProtocol.swift in Sources */,
 				B45A1709294F3E7B004DD1E9 /* NetworkingSession.swift in Sources */,
+				B45A18F12950CF4D004DD1E9 /* SearchResultModule.swift in Sources */,
 				B45A176C294F4121004DD1E9 /* BaseControllerProtocols.swift in Sources */,
 				B45A1697294F29D9004DD1E9 /* Style+Font.swift in Sources */,
 				B45A1835294F6E41004DD1E9 /* MainCoordinator.swift in Sources */,
@@ -799,8 +856,11 @@
 				B45A1701294F3E7B004DD1E9 /* InterceptorProtocol.swift in Sources */,
 				B45A1769294F4121004DD1E9 /* BasePresenterProtocol.swift in Sources */,
 				B45A16DD294F3C26004DD1E9 /* MockProductService.swift in Sources */,
+				B45A18FA29512D99004DD1E9 /* SearchResultTableViewCell.swift in Sources */,
+				B45A18F62950CF4D004DD1E9 /* SearchResultInteractor.swift in Sources */,
 				B45A1888294FB7B3004DD1E9 /* AppColors.generated.swift in Sources */,
 				B45A1758294F403B004DD1E9 /* UICell+Extention.swift in Sources */,
+				B45A18F52950CF4D004DD1E9 /* SearchResultAssembly.swift in Sources */,
 				B45A1768294F4121004DD1E9 /* BaseInteractorProtocols.swift in Sources */,
 				B45A1706294F3E7B004DD1E9 /* Data+Extension.swift in Sources */,
 				B45A16DA294F3C26004DD1E9 /* RestProductService.swift in Sources */,

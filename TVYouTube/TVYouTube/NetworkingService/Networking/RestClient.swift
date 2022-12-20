@@ -3,6 +3,7 @@ import Alamofire
 
 enum ApiURLsPath: String {
     case baseUrl = "http://localhost:3001/"
+    case imageSource = "https://picsum.photos/id/"
 }
 
 final class RestClient: NetworkingSession, InterceptorDelegate {

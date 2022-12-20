@@ -7,17 +7,10 @@
 import Foundation
 
 extension ResponseModels {
-    struct ProductModel: Decodable {
-        var id: String?
-        var name: String?
-        var descriptionText: String?
-        var currency: String?
-        var price: Float?
-        var imgUrl: String?
-
-        enum CodingKeys: String, CodingKey {
-            case id, name, currency, price, imgUrl
-            case descriptionText = "description"
-        }
+    struct ProductModel: ObjectEntity, Decodable {
+        var name: String
+        var type: String 
+        var info: String
+        var image: String
     }
 }

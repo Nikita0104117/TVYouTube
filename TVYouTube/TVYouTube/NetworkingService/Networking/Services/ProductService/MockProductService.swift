@@ -7,22 +7,95 @@
 import Foundation
 
 struct MockProductService: ProductService {
-//    func getProducts(completion: @escaping (Result<[ProductEntity], Error>) -> Void) {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-//            completion(.success(ResponseModels.ProductModel.mockData))
-//        }
-//    }
+    func getProducts(completion: @escaping (Result<[ResponseModels.ProductModel], Error>) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            completion(.success(ResponseModels.ProductModel.mockData))
+        }
+    }
 }
 
 private extension ResponseModels.ProductModel {
-//    static var mockData: [Self] {
-//        [
-//            .init(id: "test1", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//            .init(id: "test2", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//            .init(id: "test3", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//            .init(id: "test4", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//            .init(id: "test5", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//            .init(id: "test6", name: "Test_name", descriptionText: "Test_description", currency: "$", price: 101.01, imgUrl: "testurl"),
-//        ]
-//    }
+    enum ProductType: String, CaseIterable {
+        case drama = "Drama"
+        case comedy = "Comedy"
+        case thriller = "Thriller"
+        case action = "Action"
+
+        static var randomType: Self {
+            Self.allCases[Int.random(in: 0..<Self.allCases.count)]
+        }
+    }
+
+    static var randomInt: Int { .random(in: 0..<100) }
+
+    static var mockData: [Self] {
+        [
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.title) \(randomInt)",
+                type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            )
+        ]
+    }
 }
