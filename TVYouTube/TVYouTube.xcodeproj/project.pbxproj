@@ -286,6 +286,7 @@
 		B45A194829525F61004DD1E9 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		B45A194E2952623F004DD1E9 /* TVYouTubeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVYouTubeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45A19502952623F004DD1E9 /* TVYouTubeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVYouTubeTests.swift; sourceTree = "<group>"; };
+		B45A195A29526848004DD1E9 /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		B4AD810F294491800086F9E7 /* TVYouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVYouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AD8112294491800086F9E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AD8114294491800086F9E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -832,9 +833,18 @@
 			path = TVYouTubeTests;
 			sourceTree = "<group>";
 		};
+		B45A195929526818004DD1E9 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				B45A195A29526848004DD1E9 /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		B4AD8106294491800086F9E7 = {
 			isa = PBXGroup;
 			children = (
+				B45A195929526818004DD1E9 /* ci_scripts */,
 				B4AD8111294491800086F9E7 /* TVYouTube */,
 				B45A194F2952623F004DD1E9 /* TVYouTubeTests */,
 				B4AD8110294491800086F9E7 /* Products */,
