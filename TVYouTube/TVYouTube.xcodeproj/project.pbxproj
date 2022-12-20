@@ -128,6 +128,7 @@
 		B45A194529523FDD004DD1E9 /* DetailScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A193E29523FDD004DD1E9 /* DetailScreenAssembly.swift */; };
 		B45A194629523FDD004DD1E9 /* DetailScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A193F29523FDD004DD1E9 /* DetailScreenInteractor.swift */; };
 		B45A194729523FDD004DD1E9 /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B45A194029523FDD004DD1E9 /* DetailScreenView.swift */; };
+		B45A194929525F61004DD1E9 /* test.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B45A194829525F61004DD1E9 /* test.mp4 */; };
 		B4AD8113294491800086F9E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8112294491800086F9E7 /* AppDelegate.swift */; };
 		B4AD8115294491800086F9E7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8114294491800086F9E7 /* SceneDelegate.swift */; };
 		B4AD811C294491820086F9E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AD811B294491820086F9E7 /* Assets.xcassets */; };
@@ -271,6 +272,7 @@
 		B45A193E29523FDD004DD1E9 /* DetailScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenAssembly.swift; sourceTree = "<group>"; };
 		B45A193F29523FDD004DD1E9 /* DetailScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenInteractor.swift; sourceTree = "<group>"; };
 		B45A194029523FDD004DD1E9 /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
+		B45A194829525F61004DD1E9 /* test.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = test.mp4; sourceTree = "<group>"; };
 		B4AD810F294491800086F9E7 /* TVYouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVYouTube.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AD8112294491800086F9E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AD8114294491800086F9E7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		B45A164E294E2122004DD1E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B45A194829525F61004DD1E9 /* test.mp4 */,
 				B45A1877294FB6CF004DD1E9 /* Generated */,
 				B45A1670294F28C2004DD1E9 /* Fonts */,
 				B45A1650294E2145004DD1E9 /* Localized */,
@@ -925,6 +928,7 @@
 				B45A1683294F28C2004DD1E9 /* Poppins-ExtraLight.ttf in Resources */,
 				B45A1687294F28C2004DD1E9 /* Poppins-Light.ttf in Resources */,
 				B45A1692294F28C2004DD1E9 /* Poppins-SemiBold.ttf in Resources */,
+				B45A194929525F61004DD1E9 /* test.mp4 in Resources */,
 				B45A1685294F28C2004DD1E9 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				B45A1652294E2171004DD1E9 /* Colors.xcassets in Resources */,
 				B45A1690294F28C2004DD1E9 /* Poppins-Black.ttf in Resources */,

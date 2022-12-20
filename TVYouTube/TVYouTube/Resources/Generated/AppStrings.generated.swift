@@ -21,6 +21,8 @@ public enum AppLocale {
 
 
   public enum Detail {
+      /// Play
+      public static let play: String = AppLocale.tr("Localize", "detail.play")
       /// Detail Screen
       public static let title: String = AppLocale.tr("Localize", "detail.title")
   }

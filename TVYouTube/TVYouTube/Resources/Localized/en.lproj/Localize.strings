@@ -8,6 +8,7 @@
 
 // MARK: - Detail Module
 "detail.title" = "Detail Screen";
+"detail.play" = "Play";
 
 // MARK: - Mock Text
 "mock.title" = "Film";

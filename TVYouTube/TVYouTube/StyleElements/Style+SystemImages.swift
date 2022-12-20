@@ -9,6 +9,6 @@ import UIKit
 
 extension Style {
     enum SystemImages {
-        static let defaulProductImage = UIImage(systemName: "square.and.arrow.up")
+        static let playFill = UIImage(systemName: "play.fill")
     }
 }

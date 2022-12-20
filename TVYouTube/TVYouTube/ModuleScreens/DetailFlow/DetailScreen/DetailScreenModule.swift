@@ -34,6 +34,7 @@ protocol DetailScreenViewOutputProtocol: BaseViewOutput {
     var nameLabel: UILabel { get }
     var typeLabel: UILabel { get }
     var infoLabel: UILabel { get }
+    var playButton: UIButton { get }
 }
 
 // MARK: - Interactor
