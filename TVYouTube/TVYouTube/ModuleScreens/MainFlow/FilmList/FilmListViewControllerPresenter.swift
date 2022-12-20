@@ -3,7 +3,6 @@
 //  TVYouTube
 //
 //  Created Nikita Omelchenko on 20.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -34,6 +33,10 @@ private extension Presenter { }
 extension Presenter: Module.ControllerOutput {
     func didLoad() {
         interactor?.getProduct()
+    }
+
+    func didSelect(_ product: ObjectEntity) {
+        router?.openDetailScreen(product)
     }
 }
 

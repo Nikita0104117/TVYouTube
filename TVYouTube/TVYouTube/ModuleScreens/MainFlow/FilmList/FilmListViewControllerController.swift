@@ -3,7 +3,6 @@
 //  TVYouTube
 //
 //  Created Nikita Omelchenko on 20.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -114,6 +113,11 @@ extension Controller: UICollectionViewDataSource, SkeletonCollectionViewDataSour
 }
 
 extension Controller: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product: ObjectEntity = output?.dataSource[safe: indexPath.item] else { return }
+
+        output?.didSelect(product)
+    }
 }
 
 extension Controller: UICollectionViewDelegateFlowLayout {

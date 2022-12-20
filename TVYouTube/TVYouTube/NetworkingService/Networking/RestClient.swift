@@ -2,7 +2,7 @@ import Foundation
 import Alamofire
 
 enum ApiURLsPath: String {
-    case baseUrl = "http://localhost:3001/"
+    case baseUrl = "https://picsum.photos/"
     case imageSource = "https://picsum.photos/id/"
 }
 

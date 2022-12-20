@@ -3,7 +3,6 @@
 //  TVYouTube
 //
 //  Created Nikita Omelchenko on 20.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -23,8 +22,6 @@ struct FilmViewCollectionModule {
 protocol FilmViewCollectionAssemblyProtocol: BaseAssembly {
     var productService: ProductService? { get set }
     var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
-
-    func assemble() -> UIViewController
 }
 
 // MARK: - Controller

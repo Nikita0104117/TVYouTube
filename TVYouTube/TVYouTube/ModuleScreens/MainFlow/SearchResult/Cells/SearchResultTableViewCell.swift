@@ -18,7 +18,7 @@ class SearchResultTableViewCell: UITableViewCell {
     private lazy var infoStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
         $0.spacing = 0
-        $0.contentMode = .top
+        $0.contentMode = .center
     }
 
     private lazy var photoImageView: UIImageView = build {
@@ -64,7 +64,7 @@ class SearchResultTableViewCell: UITableViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.equalToSuperview().inset(16)
+            make.trailing.leading.top.bottom.equalToSuperview().inset(16)
         }
 
         photoImageView.snp.makeConstraints { make in

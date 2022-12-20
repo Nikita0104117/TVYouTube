@@ -3,7 +3,6 @@
 //  TVYouTube
 //
 //  Created Nikita Omelchenko on 20.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -13,6 +12,8 @@ private typealias Module = FilmListViewControllerModule
 extension Module {
     final class ModuleAssembly: ModuleAssemblying {
         var productService: ProductService?
+
+        var openDetailScreen: ((_ product: ObjectEntity) -> Void)?
 
         func assemble() -> UIViewController {
             let controller: Controller = .init()
@@ -31,6 +32,10 @@ extension Module {
             interactor.output = presenter
 
             router.viewController = controller
+
+            router.openDetailScreen = { [weak self] object in
+                self?.openDetailScreen?(object)
+            }
 
             return controller
         }

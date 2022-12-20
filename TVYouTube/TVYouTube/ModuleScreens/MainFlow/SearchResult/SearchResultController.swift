@@ -3,7 +3,6 @@
 //  TVYouTube
 //
 //  Created Nikita Omelchenko on 19.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
@@ -109,6 +108,12 @@ extension Controller: UITableViewDataSource, SkeletonTableViewDataSource, UITabl
         cell.conifgCell(with: product)
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let product: ObjectEntity = output?.dataSource[safe: indexPath.item] else { return }
+
+        output?.didSelect(product)
     }
 }
 

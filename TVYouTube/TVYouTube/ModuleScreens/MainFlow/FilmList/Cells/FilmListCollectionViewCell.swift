@@ -60,7 +60,7 @@ class FilmListCollectionViewCell: UICollectionViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.equalToSuperview().inset(16)
+            make.trailing.leading.top.bottom.equalToSuperview().inset(16)
         }
 
         photoImageView.snp.makeConstraints { make in
