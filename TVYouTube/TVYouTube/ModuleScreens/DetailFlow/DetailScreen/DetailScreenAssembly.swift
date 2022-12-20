@@ -2,7 +2,7 @@
 //  DetailScreenAssembly.swift
 //  TVYouTube
 //
-//  Created Nikita Omelchenko 
+//  Created Nikita Omelchenko
 //
 
 import UIKit
