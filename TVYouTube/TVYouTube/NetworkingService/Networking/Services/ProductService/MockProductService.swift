@@ -12,6 +12,12 @@ struct MockProductService: ProductService {
             completion(.success(ResponseModels.ProductModel.mockData))
         }
     }
+
+    func getActors(completion: @escaping (Result<[ResponseModels.ActorModel], Error>) -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            completion(.success(ResponseModels.ActorModel.mockData))
+        }
+    }
 }
 
 private extension ResponseModels.ProductModel {
@@ -93,6 +99,70 @@ private extension ResponseModels.ProductModel {
             .init(
                 name: "\(AppLocale.Mock.title) \(randomInt)",
                 type: ProductType.randomType.rawValue,
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            )
+        ]
+    }
+}
+
+private extension ResponseModels.ActorModel {
+    static var randomInt: Int { .random(in: 0..<100) }
+
+    static var mockData: [Self] {
+        [
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
+                info: AppLocale.Mock.info,
+                image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
+            ),
+            .init(
+                name: "\(AppLocale.Mock.actor) \(randomInt)",
                 info: AppLocale.Mock.info,
                 image: "\(ApiURLsPath.imageSource.rawValue)\(randomInt)/300"
             )

@@ -1,5 +1,5 @@
 //
-//  SearchResultTableViewCell.swift
+//  FilmListCollectionViewCell.swift
 //  TVYouTube
 //
 //  Created by Nikita Omelchenko on 20.12.2022.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Kingfisher
 
-class SearchResultTableViewCell: UITableViewCell {
+class FilmListCollectionViewCell: UICollectionViewCell {
     private lazy var contentStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultHorizontalStack0
         $0.spacing = 16
@@ -41,20 +41,16 @@ class SearchResultTableViewCell: UITableViewCell {
         $0 <~ Style.Label.grayRegularLabel12
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         commonSetup()
         makeConstraints()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
 
     private func commonSetup() {
-        selectionStyle = .none
-
         addSubview(contentStackView)
 
         contentStackView.addArrangedSubviews(photoImageView, infoStackView)
@@ -68,8 +64,8 @@ class SearchResultTableViewCell: UITableViewCell {
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.width.equalTo(self.bounds.width / 2)
-            make.height.equalTo(self.bounds.width / 4)
+            make.width.equalTo(self.bounds.width * 0.25)
+            make.height.equalTo(self.bounds.height)
         }
     }
 

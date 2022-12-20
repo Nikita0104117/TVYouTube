@@ -30,4 +30,24 @@ extension RestProductService: ProductService {
             }
         }
     }
+
+    func getActors(completion: @escaping (Result<[ResponseModels.ActorModel], Error>) -> Void) {
+        guard
+            let request = restClient.request(RequestRouter.Product.getActors)
+        else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+
+        request.responseData { [restClient] response in
+            let result: Result<[ResponseModels.ActorModel], Error> = restClient.responseData(response)
+
+            switch result {
+                case .success(let object):
+                    completion(.success(object))
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+    }
 }

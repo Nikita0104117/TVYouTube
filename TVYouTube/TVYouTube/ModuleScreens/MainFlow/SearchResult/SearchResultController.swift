@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 private typealias Module = SearchResultModule
 private typealias Controller = Module.Controller
@@ -46,11 +47,11 @@ extension Module {
             output?.willAppear()
         }
 
-
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
 
             output?.didAppear()
+            viewOutput?.contentTableView.showSkeleton(usingColor: AppColors.gray.color)
         }
 
         override func viewDidDisappear(_ animated: Bool) {
@@ -76,12 +77,13 @@ private extension Controller {
 extension Controller: Module.ControllerInput {
     func reloadData() {
         DispatchQueue.main.async { [weak self] in
+            self?.viewOutput?.contentTableView.hideSkeleton()
             self?.viewOutput?.contentTableView.reloadData()
         }
     }
 }
 
-extension Controller: UITableViewDataSource, UITableViewDelegate {
+extension Controller: UITableViewDataSource, SkeletonTableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
@@ -92,6 +94,10 @@ extension Controller: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         output?.dataSource.count ?? 0
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        SearchResultTableViewCell.reusebleId
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

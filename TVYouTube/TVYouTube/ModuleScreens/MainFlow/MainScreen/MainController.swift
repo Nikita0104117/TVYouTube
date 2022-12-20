@@ -15,7 +15,13 @@ extension Module {
         var output: ControllerOutput?
         var viewOutput: ViewOutput?
 
+        // MARK: - Search Result View Controller
         var searchResultViewController: UIViewController?
+
+        // MARK: - View Controllers
+        var filmViewCollectionViewController: UIViewController?
+        var actorViewCollectionViewController: UIViewController?
+        var filmListCollectionViewController: UIViewController?
 
         // MARK: - Properties
         private lazy var searchController: UISearchController = build(
@@ -94,8 +100,17 @@ extension Controller: Module.ControllerInput {
 }
 
 extension Controller: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        UITableView.automaticDimension
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+            case Module.Sections.one.rawValue:
+                return Module.Sections.hieght
+            case Module.Sections.two.rawValue:
+                return Module.Sections.hieght
+            case Module.Sections.three.rawValue:
+                return Module.Sections.hieght
+            default:
+                return Module.Sections.hieght
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -111,6 +126,21 @@ extension Controller: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        .init()
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reusebleId, for: indexPath) as? MainTableViewCell
+        else { return .init() }
+
+        switch indexPath.section {
+            case Module.Sections.one.rawValue:
+                cell.conifgCell(with: filmViewCollectionViewController?.view)
+            case Module.Sections.two.rawValue:
+                cell.conifgCell(with: actorViewCollectionViewController?.view)
+            case Module.Sections.three.rawValue:
+                cell.conifgCell(with: filmListCollectionViewController?.view)
+            default:
+                break
+        }
+
+        return cell
     }
 }

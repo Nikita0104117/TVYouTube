@@ -16,12 +16,10 @@ struct MainModule {
     typealias InteractorOutput = MainInteractorOutputProtocol
     typealias RouterInput = MainRouterInputProtocol
 
-    enum Sections: CaseIterable {
-        case one
-        case two
-        case three
-        case four
-        case five
+    enum Sections: Int, CaseIterable {
+        case one = 0
+        case two = 1
+        case three = 2
     }
 }
 
@@ -34,19 +32,20 @@ extension MainModule.Sections {
                 return AppLocale.Main.Section.two
             case .three:
                 return AppLocale.Main.Section.three
-            case .four:
-                return AppLocale.Main.Section.four
-            case .five:
-                return AppLocale.Main.Section.five
         }
     }
 
     var numberOfCells: Int { 1 }
+
+    static var hieght: CGFloat { 300 }
 }
 
 // MARK: - Assembly
 protocol MainAssemblyProtocol: BaseAssembly {
     var searchResultViewController: UIViewController? { get set }
+    var filmViewCollectionViewController: UIViewController? { get set }
+    var actorViewCollectionViewController: UIViewController? { get set }
+    var filmListCollectionViewController: UIViewController? { get set }
 }
 
 // MARK: - Controller

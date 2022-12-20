@@ -17,6 +17,8 @@ extension Module {
         // MARK: - UI Elements
         private(set) lazy var contentTableView: UITableView = build(.init(frame: .zero, style: .plain)) {
             $0.separatorStyle = .none
+
+            $0.register(MainTableViewCell.self)
         }
 
         // MARK: - Init

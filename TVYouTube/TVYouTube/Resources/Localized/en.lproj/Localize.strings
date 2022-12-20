@@ -6,6 +6,10 @@
 "main.section.four" = "Section Four";
 "main.section.five" = "Section Five";
 
+// MARK: - Detail Module
+"detail.title" = "Detail Screen";
+
 // MARK: - Mock Text
 "mock.title" = "Film";
+"mock.actor" = "Actor";
 "mock.info" = "info about film, info about film info about film, info about filminfo about film, info about film";

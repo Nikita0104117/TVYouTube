@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import SkeletonView
 
 private typealias Module = SearchResultModule
 private typealias View = Module.View
@@ -17,8 +18,8 @@ extension Module {
         // MARK: - UI Elements
         private(set) lazy var contentTableView: UITableView = build(.init(frame: .zero, style: .plain)) {
             $0.separatorStyle = .none
-
             $0.register(SearchResultTableViewCell.self)
+            $0.isSkeletonable = true
         }
 
         // MARK: - Init

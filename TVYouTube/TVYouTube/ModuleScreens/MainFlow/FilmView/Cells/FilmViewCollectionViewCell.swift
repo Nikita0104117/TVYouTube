@@ -1,5 +1,5 @@
 //
-//  SearchResultTableViewCell.swift
+//  FilmViewCollectionViewCell.swift
 //  TVYouTube
 //
 //  Created by Nikita Omelchenko on 20.12.2022.
@@ -7,23 +7,16 @@
 
 import UIKit
 import SnapKit
-import Kingfisher
 
-class SearchResultTableViewCell: UITableViewCell {
+class FilmViewCollectionViewCell: UICollectionViewCell {
     private lazy var contentStackView: UIStackView = build {
-        $0 <~ Style.Stack.defaultHorizontalStack0
-        $0.spacing = 16
-    }
-
-    private lazy var infoStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
-        $0.spacing = 0
-        $0.contentMode = .top
+        $0.spacing = 8
     }
 
     private lazy var photoImageView: UIImageView = build {
         $0.backgroundColor = AppColors.gray.color
-        $0.contentMode = .scaleAspectFill
+        $0.contentMode = .scaleToFill
 
         $0.layer.cornerRadius = 4
         $0.layer.masksToBounds = true
@@ -41,35 +34,28 @@ class SearchResultTableViewCell: UITableViewCell {
         $0 <~ Style.Label.grayRegularLabel12
     }
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
         commonSetup()
         makeConstraints()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { nil }
 
     private func commonSetup() {
-        selectionStyle = .none
-
         addSubview(contentStackView)
 
-        contentStackView.addArrangedSubviews(photoImageView, infoStackView)
-
-        infoStackView.addArrangedSubviews(nameLabel, typeLabel, infoLabel)
+        contentStackView.addArrangedSubviews(photoImageView, nameLabel, typeLabel, infoLabel)
     }
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.equalToSuperview().inset(16)
+            make.trailing.leading.top.equalToSuperview().inset(8)
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.width.equalTo(self.bounds.width / 2)
-            make.height.equalTo(self.bounds.width / 4)
+            make.height.equalTo(self.bounds.height * 0.5)
         }
     }
 

@@ -9,7 +9,13 @@ import Foundation
 extension ResponseModels {
     struct ProductModel: ObjectEntity, Decodable {
         var name: String
-        var type: String 
+        var type: String
+        var info: String
+        var image: String
+    }
+
+    struct ActorModel: ActorEntity, Decodable {
+        var name: String
         var info: String
         var image: String
     }

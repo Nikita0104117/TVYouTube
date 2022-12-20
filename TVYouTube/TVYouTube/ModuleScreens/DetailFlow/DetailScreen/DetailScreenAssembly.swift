@@ -1,19 +1,18 @@
 //
-//  MainAssembly.swift
+//  DetailScreenAssembly.swift
+//  TVYouTube
 //
-//  Created Nikita Omelchenko
+//  Created Nikita Omelchenko on 20.12.2022.
+//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
 
-private typealias Module = MainModule
+private typealias Module = DetailScreenModule
 
 extension Module {
     final class ModuleAssembly: ModuleAssemblying {
-        var searchResultViewController: UIViewController?
-        var filmViewCollectionViewController: UIViewController?
-        var actorViewCollectionViewController: UIViewController?
-        var filmListCollectionViewController: UIViewController?
+        var object: ObjectEntity?
 
         func assemble() -> UIViewController {
             let controller: Controller = .init()
@@ -24,11 +23,7 @@ extension Module {
 
             controller.output = presenter
             controller.viewOutput = view
-
-            controller.searchResultViewController = searchResultViewController
-            controller.filmViewCollectionViewController = filmViewCollectionViewController
-            controller.actorViewCollectionViewController = actorViewCollectionViewController
-            controller.filmListCollectionViewController = filmListCollectionViewController
+            controller.object = object
 
             presenter.controller = controller
             presenter.router = router

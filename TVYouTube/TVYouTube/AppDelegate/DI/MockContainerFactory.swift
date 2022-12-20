@@ -21,6 +21,10 @@ public class MockContainerFactory {
     // MARK: - Modules
     private lazy var mainAssembly: MainModule.ModuleAssembly = .init()
     private lazy var searchResultAssembly: SearchResultModule.ModuleAssembly = .init()
+    private lazy var filmViewAssembly: FilmViewCollectionModule.ModuleAssembly = .init()
+    private lazy var actorViewAssembly: ActorViewCollectionModule.ModuleAssembly = .init()
+    private lazy var filmListViewAssembly: FilmListViewControllerModule.ModuleAssembly = .init()
+    private lazy var detailScreenAssambly: DetailScreenModule.ModuleAssembly = .init()
 
     // MARK: - Services
     private lazy var productService: ProductService = MockProductService()
@@ -35,6 +39,10 @@ public class MockContainerFactory {
         // MARK: - Modules
         container.register { [mainAssembly] () -> MainModule.ModuleAssemblying in mainAssembly }
         container.register { [searchResultAssembly] () -> SearchResultModule.ModuleAssemblying in searchResultAssembly }
+        container.register { [filmViewAssembly] () -> FilmViewCollectionModule.ModuleAssemblying in filmViewAssembly }
+        container.register { [actorViewAssembly] () -> ActorViewCollectionModule.ModuleAssemblying in actorViewAssembly }
+        container.register { [filmListViewAssembly] () -> FilmListViewControllerModule.ModuleAssemblying in filmListViewAssembly }
+        container.register { [detailScreenAssambly] () -> DetailScreenModule.ModuleAssemblying in detailScreenAssambly }
 
         // MARK: - Services
         container.register { [productService] () -> ProductService in productService }

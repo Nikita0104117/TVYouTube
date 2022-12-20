@@ -7,11 +7,4 @@
 
 import Foundation
 
-extension Style.Button {
-//    static let headerButton = ColoredButton(
-//        background: .clear,
-//        contentEdgeInsets: Style.Margins.defaultInsets,
-//        image: AppAssets.icoAccessoryDownArrow.image,
-//        selectedImage: AppAssets.icoAccessoryUpArrow.image
-//    )
-}
+extension Style.Button { }

@@ -20,6 +20,11 @@ public enum AppLocale {
     public static var currentLanguageCode: String = "en"
 
 
+  public enum Detail {
+      /// Detail Screen
+      public static let title: String = AppLocale.tr("Localize", "detail.title")
+  }
+
   public enum Main {
       /// Home Screen
       public static let title: String = AppLocale.tr("Localize", "main.title")
@@ -38,6 +43,8 @@ public enum AppLocale {
   }
 
   public enum Mock {
+      /// Actor
+      public static let actor: String = AppLocale.tr("Localize", "mock.actor")
       /// info about film, info about film info about film, info about filminfo about film, info about film
       public static let info: String = AppLocale.tr("Localize", "mock.info")
       /// Film
