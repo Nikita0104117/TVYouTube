@@ -2,8 +2,7 @@
 //  DetailScreenAssembly.swift
 //  TVYouTube
 //
-//  Created Nikita Omelchenko on 20.12.2022.
-//  Copyright © 2022 ___ORGANIZATIONNAME___. All rights reserved.
+//  Created Nikita Omelchenko 
 //
 
 import UIKit
