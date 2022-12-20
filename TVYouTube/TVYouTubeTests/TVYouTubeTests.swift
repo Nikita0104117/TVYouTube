@@ -2,14 +2,13 @@
 //  TVYouTubeTests.swift
 //  TVYouTubeTests
 //
-//  Created by Nikita Omelchenko on 10.12.2022.
+//  Created by Nikita Omelchenko on 20.12.2022.
 //
 
 import XCTest
-@testable import TVYouTube
 
+// swiftlint:disable all
 final class TVYouTubeTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -28,9 +27,8 @@ final class TVYouTubeTests: XCTestCase {
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        self.measure {
+        measure {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

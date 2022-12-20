@@ -1,0 +1,24 @@
+strings:
+  - inputs: TVYouTube/Resources/Localized/en.lproj/Localize.strings
+    outputs:
+      - templatePath: swiftgen_templates/strings/locale.stencil
+        output: TVYouTube/Resources/Generated/AppStrings.generated.swift
+        params:
+          enumName: AppLocale
+          publicAccess: true
+
+xcassets:
+  - inputs: TVYouTube/Resources/Assets/Assets.xcassets
+    outputs:
+      - templatePath: swiftgen_templates/assets.stencil
+        output: TVYouTube/Resources/Generated/AppAssets.generated.swift
+        params:
+          enumName: AppAssets
+          publicAccess: true
+  - inputs: TVYouTube/Resources/Assets/Colors.xcassets
+    outputs:
+      - templatePath: swiftgen_templates/assets.stencil
+        output: TVYouTube/Resources/Generated/AppColors.generated.swift
+        params:
+          enumName: AppColors
+          publicAccess: true
