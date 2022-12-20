@@ -15,12 +15,13 @@ struct SearchResultModule {
     typealias InteractorInput = SearchResultInteractorInputProtocol
     typealias InteractorOutput = SearchResultInteractorOutputProtocol
     typealias RouterInput = SearchResultRouterInputProtocol
+    typealias RouterOutput = SearchResultRouterInputProtocolOutputProtocol
 }
 
 // MARK: - Assembly
 protocol SearchResultAssemblyProtocol: BaseAssembly {
     var productService: ProductService? { get set }
-
+    var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
 }
 
 // MARK: - Controller
@@ -32,6 +33,7 @@ protocol SearchResultControllerOutputProtocol: BaseControllerOutput {
     var dataSource: [ObjectEntity] { get }
 
     func searchProduct(_ searchText: String)
+    func didSelect(_ product: ObjectEntity)
 }
 
 // MARK: - View
@@ -50,4 +52,9 @@ protocol SearchResultInteractorOutputProtocol: AnyObject, BaseInteractorOutput {
 
 // MARK: - Router
 protocol SearchResultRouterInputProtocol {
+    func openDetailScreen(_ product: ObjectEntity)
+}
+
+protocol SearchResultRouterInputProtocolOutputProtocol {
+    var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
 }

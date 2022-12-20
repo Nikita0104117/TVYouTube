@@ -29,7 +29,6 @@ public class RestContainerFactory {
     private lazy var filmListViewAssembly: FilmListViewControllerModule.ModuleAssembly = .init()
     private lazy var detailScreenAssambly: DetailScreenModule.ModuleAssembly = .init()
 
-
     // MARK: - Session
     private lazy var restClient = RestClient(baseURL: baseURL)
 
@@ -51,7 +50,6 @@ public class RestContainerFactory {
         container.register { [actorViewAssembly] () -> ActorViewCollectionModule.ModuleAssemblying in actorViewAssembly }
         container.register { [filmListViewAssembly] () -> FilmListViewControllerModule.ModuleAssemblying in filmListViewAssembly }
         container.register { [detailScreenAssambly] () -> DetailScreenModule.ModuleAssemblying in detailScreenAssambly }
-
 
         // MARK: - Services
         container.register { [productService] () -> ProductService in productService }

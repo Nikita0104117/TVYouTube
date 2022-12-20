@@ -16,7 +16,6 @@ final class NetworkingMassage {
 
     static func showMassege(viewController: UIViewController, text: String?, style: StyleType) {
         guard
-            let navigationController = viewController.navigationController,
             let window = UIApplication.shared.keyWindow
         else { return }
 
@@ -33,7 +32,7 @@ final class NetworkingMassage {
         }
 
         let textLabel: UILabel = build {
-            $0.textColor = .black
+            $0.textColor = AppColors.white.color
             $0.numberOfLines = 0
             $0.font = .systemFont(ofSize: 16)
             $0.text = text
@@ -42,7 +41,7 @@ final class NetworkingMassage {
         stack.addArrangedSubview(rootView)
         rootView.addSubview(textLabel)
 
-        navigationController.navigationBar.addSubview(stack)
+        viewController.view.addSubview(stack)
 
         textLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(statusBarHeight )

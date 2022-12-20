@@ -22,8 +22,6 @@ struct FilmViewCollectionModule {
 protocol FilmViewCollectionAssemblyProtocol: BaseAssembly {
     var productService: ProductService? { get set }
     var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
-
-    func assemble() -> UIViewController
 }
 
 // MARK: - Controller

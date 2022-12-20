@@ -50,6 +50,12 @@ extension MainCoordinator {
 
     private func configSearchResultScreen() -> SearchResultModule.ModuleAssemblying {
         searchResultAssembly.productService = productService
+        searchResultAssembly.openDetailScreen = { [weak self] object in
+            guard let self = self else { return }
+
+            let detailScreen = self.configDetailScreen(object).assemble()
+            self.navigationController?.pushViewController(detailScreen, animated: true)
+        }
 
         return searchResultAssembly
     }
@@ -74,6 +80,12 @@ extension MainCoordinator {
 
     private func configFilmListViewCollectionScreen() -> FilmListViewControllerModule.ModuleAssemblying {
         filmListViewAssembly.productService = productService
+        filmListViewAssembly.openDetailScreen = { [weak self] object in
+            guard let self = self else { return }
+
+            let detailScreen = self.configDetailScreen(object).assemble()
+            self.navigationController?.pushViewController(detailScreen, animated: true)
+        }
 
         return filmListViewAssembly
     }

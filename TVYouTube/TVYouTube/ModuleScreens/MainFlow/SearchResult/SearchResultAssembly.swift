@@ -13,6 +13,8 @@ extension Module {
     final class ModuleAssembly: ModuleAssemblying {
         var productService: ProductService?
 
+        var openDetailScreen: ((_ product: ObjectEntity) -> Void)?
+
         func assemble() -> UIViewController {
             let controller: Controller = .init()
             let view: View = .init()
@@ -30,6 +32,10 @@ extension Module {
             interactor.output = presenter
 
             router.viewController = controller
+
+            router.openDetailScreen = { [weak self] object in
+                self?.openDetailScreen?(object)
+            }
 
             return controller
         }

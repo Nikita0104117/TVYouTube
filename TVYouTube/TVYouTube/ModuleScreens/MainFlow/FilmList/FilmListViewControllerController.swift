@@ -113,6 +113,11 @@ extension Controller: UICollectionViewDataSource, SkeletonCollectionViewDataSour
 }
 
 extension Controller: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let product: ObjectEntity = output?.dataSource[safe: indexPath.item] else { return }
+
+        output?.didSelect(product)
+    }
 }
 
 extension Controller: UICollectionViewDelegateFlowLayout {

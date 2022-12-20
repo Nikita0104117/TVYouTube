@@ -109,6 +109,12 @@ extension Controller: UITableViewDataSource, SkeletonTableViewDataSource, UITabl
 
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let product: ObjectEntity = output?.dataSource[safe: indexPath.item] else { return }
+
+        output?.didSelect(product)
+    }
 }
 
 extension Controller: UISearchResultsUpdating {

@@ -34,6 +34,10 @@ extension Presenter: Module.ControllerOutput {
     func didLoad() {
         interactor?.getProduct()
     }
+
+    func didSelect(_ product: ObjectEntity) {
+        router?.openDetailScreen(product)
+    }
 }
 
 extension Presenter: Module.InteractorOutput {

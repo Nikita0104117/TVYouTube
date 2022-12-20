@@ -58,6 +58,10 @@ extension Presenter: Module.ControllerOutput {
             || $0.info.lowercased().contains(searchText.lowercased())
         }
     }
+
+    func didSelect(_ product: ObjectEntity) {
+        router?.openDetailScreen(product)
+    }
 }
 
 extension Presenter: Module.InteractorOutput {

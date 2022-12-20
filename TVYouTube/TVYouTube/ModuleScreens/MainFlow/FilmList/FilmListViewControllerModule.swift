@@ -15,11 +15,13 @@ struct FilmListViewControllerModule {
     typealias InteractorInput = FilmListViewControllerInteractorInputProtocol
     typealias InteractorOutput = FilmListViewControllerInteractorOutputProtocol
     typealias RouterInput = FilmListViewControllerRouterInputProtocol
+    typealias RouterOutput = FilmListViewControllerRouterOutputProtocol
 }
 
 // MARK: - Assembly
 protocol FilmListViewControllerAssemblyProtocol: BaseAssembly {
     var productService: ProductService? { get set }
+    var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
 }
 
 // MARK: - Controller
@@ -29,6 +31,8 @@ protocol FilmListViewControllerControllerInputProtocol: BaseControllerInput {
 
 protocol FilmListViewControllerControllerOutputProtocol: BaseControllerOutput {
     var dataSource: [ObjectEntity] { get }
+
+    func didSelect(_ product: ObjectEntity)
 }
 
 // MARK: - View
@@ -46,4 +50,10 @@ protocol FilmListViewControllerInteractorOutputProtocol: AnyObject, BaseInteract
 }
 
 // MARK: - Router
-protocol FilmListViewControllerRouterInputProtocol { }
+protocol FilmListViewControllerRouterInputProtocol {
+    func openDetailScreen(_ product: ObjectEntity)
+}
+
+protocol FilmListViewControllerRouterOutputProtocol {
+    var openDetailScreen: ((_ product: ObjectEntity) -> Void)? { get set }
+}
