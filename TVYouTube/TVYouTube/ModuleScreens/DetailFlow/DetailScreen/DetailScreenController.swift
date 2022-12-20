@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import AVFoundation
+import AVKit
 
 private typealias Module = DetailScreenModule
 private typealias Controller = Module.Controller
@@ -21,6 +23,9 @@ extension Module {
         var object: ObjectEntity?
 
         // MARK: - Properties
+        private lazy var playAction: UIAction = .init { [weak self] _ in
+            self?.playVideo()
+        }
 
         // MARK: - Init
         required init?(coder: NSCoder) {
@@ -48,7 +53,6 @@ extension Module {
 
             output?.willAppear()
         }
-
 
         override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
@@ -78,7 +82,23 @@ private extension Controller {
         viewOutput.nameLabel.text = object.name
         viewOutput.typeLabel.text = object.type
         viewOutput.infoLabel.text = object.info
+
+        viewOutput.playButton.addAction(playAction, for: .touchUpInside)
     }
+
+    private func playVideo() {
+            guard
+                let path = Bundle.main.path(forResource: "test", ofType: "mp4")
+        else { return }
+
+            let player = AVPlayer(url: URL(fileURLWithPath: path))
+            let playerController = AVPlayerViewController()
+
+            playerController.player = player
+            present(playerController, animated: true) {
+                player.play()
+            }
+        }
 }
 
 extension Controller: Module.ControllerInput { }

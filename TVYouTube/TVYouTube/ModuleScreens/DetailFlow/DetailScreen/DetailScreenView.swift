@@ -39,6 +39,12 @@ extension Module {
         private(set) lazy var infoLabel: UILabel = build {
             $0 <~ Style.Label.grayRegularLabel12
         }
+
+        private(set) lazy var playButton: UIButton = build {
+            $0 <~ Style.Button.blueButton
+            $0.configuration?.title = AppLocale.Detail.play
+        }
+
         // MARK: - Init
         init() {
             super.init(frame: .zero)
@@ -57,7 +63,7 @@ private extension View {
         addSubview(photoImageView)
         addSubview(infoStackView)
 
-        infoStackView.addArrangedSubviews(nameLabel, typeLabel, infoLabel)
+        infoStackView.addArrangedSubviews(nameLabel, typeLabel, infoLabel, playButton)
 
         makeConstraints()
     }

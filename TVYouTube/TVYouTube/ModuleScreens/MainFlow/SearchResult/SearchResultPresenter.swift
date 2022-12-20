@@ -45,7 +45,7 @@ extension Presenter: Module.ControllerOutput {
     func didLoad() {
         interactor?.getProduct()
     }
-    
+
     func searchProduct(_ searchText: String) {
         self.searchText = searchText
 
