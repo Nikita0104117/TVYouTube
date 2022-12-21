@@ -13,10 +13,16 @@ private typealias View = Module.View
 
 extension Module {
     final class View: UIView, Module.ViewOutput {
+        private enum Constants {
+            static let defaultSpacing: CGFloat = 8
+            static let smallOffset: CGFloat = 8
+            static let bottomOffset: CGFloat = 32
+        }
+
         // MARK: - UI Elements
         private(set) lazy var infoStackView: UIStackView = build {
             $0 <~ Style.Stack.defaultVerticalStack0
-            $0.spacing = 8
+            $0.spacing = Constants.defaultSpacing
         }
 
         private(set) lazy var photoImageView: UIImageView = build {
@@ -69,8 +75,8 @@ private extension View {
 
     private func makeConstraints() {
         infoStackView.snp.makeConstraints { make in
-            make.trailing.leading.equalToSuperview().inset(8)
-            make.top.equalTo(photoImageView.snp.bottomMargin).offset(32)
+            make.trailing.leading.equalToSuperview().inset(Constants.smallOffset)
+            make.top.equalTo(photoImageView.snp.bottomMargin).offset(Constants.bottomOffset)
         }
 
         photoImageView.snp.makeConstraints { make in

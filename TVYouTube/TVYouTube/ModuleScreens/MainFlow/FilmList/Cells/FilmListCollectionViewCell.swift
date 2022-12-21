@@ -10,14 +10,18 @@ import SnapKit
 import Kingfisher
 
 class FilmListCollectionViewCell: UICollectionViewCell {
+    private enum Constants {
+        static let defaulSpacing: CGFloat = 16
+        static let defaulCornerRadius: CGFloat = 4
+    }
+
     private lazy var contentStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultHorizontalStack0
-        $0.spacing = 16
+        $0.spacing = Constants.defaulSpacing
     }
 
     private lazy var infoStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
-        $0.spacing = 0
         $0.contentMode = .top
     }
 
@@ -25,7 +29,7 @@ class FilmListCollectionViewCell: UICollectionViewCell {
         $0.backgroundColor = AppColors.gray.color
         $0.contentMode = .scaleAspectFill
 
-        $0.layer.cornerRadius = 4
+        $0.layer.cornerRadius = Constants.defaulCornerRadius
         $0.layer.masksToBounds = true
     }
 
@@ -60,11 +64,11 @@ class FilmListCollectionViewCell: UICollectionViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.bottom.equalToSuperview().inset(16)
+            make.trailing.leading.top.bottom.equalToSuperview().inset(Constants.defaulSpacing)
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.width.equalTo(self.bounds.width * 0.25)
+            make.width.equalTo(self.bounds.width.part25)
             make.height.equalTo(self.bounds.height)
         }
     }

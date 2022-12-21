@@ -14,10 +14,14 @@ private typealias View = Module.View
 
 extension Module {
     final class View: UIView, Module.ViewOutput {
+        private enum Constants {
+            static let defaultSpacing: CGFloat = 8
+        }
+
         private lazy var collectionLayout: UICollectionViewFlowLayout = build {
             $0.scrollDirection = .horizontal
-            $0.minimumLineSpacing = 5
-            $0.minimumInteritemSpacing = 5
+            $0.minimumLineSpacing = Constants.defaultSpacing
+            $0.minimumInteritemSpacing = Constants.defaultSpacing
         }
 
         private(set) lazy var contentCollectionView: UICollectionView = build(

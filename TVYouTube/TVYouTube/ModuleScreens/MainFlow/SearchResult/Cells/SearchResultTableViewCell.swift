@@ -10,14 +10,19 @@ import SnapKit
 import Kingfisher
 
 class SearchResultTableViewCell: UITableViewCell {
+    private enum Constants {
+        static let defaultSpasing: CGFloat = 16
+        static let defaultCornerRadius: CGFloat = 4
+    }
+
     private lazy var contentStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultHorizontalStack0
-        $0.spacing = 16
+        $0.spacing = Constants.defaultSpasing
     }
 
     private lazy var infoStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
-        $0.spacing = 0
+        $0.spacing = .zero
         $0.contentMode = .center
     }
 
@@ -25,7 +30,7 @@ class SearchResultTableViewCell: UITableViewCell {
         $0.backgroundColor = AppColors.gray.color
         $0.contentMode = .scaleAspectFill
 
-        $0.layer.cornerRadius = 4
+        $0.layer.cornerRadius = Constants.defaultCornerRadius
         $0.layer.masksToBounds = true
     }
 
@@ -64,15 +69,17 @@ class SearchResultTableViewCell: UITableViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.bottom.equalToSuperview().inset(16)
+            make.trailing.leading.top.bottom.equalToSuperview().inset(Constants.defaultSpasing)
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.width.equalTo(self.bounds.width / 2)
-            make.height.equalTo(self.bounds.width / 4)
+            make.width.equalTo(self.bounds.width.part50)
+            make.height.equalTo(self.bounds.width.part25)
         }
     }
+}
 
+extension SearchResultTableViewCell {
     func conifgCell(with entity: ObjectEntity) {
         photoImageView.kf.setImage(with: URL(string: entity.image))
 

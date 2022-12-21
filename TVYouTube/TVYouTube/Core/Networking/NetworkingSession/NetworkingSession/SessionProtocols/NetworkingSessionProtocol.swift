@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+// MARK: - Networking Session Protocol
 public protocol NetworkingSessionProtocol: AnyObject {
     var sessionManager: Session { get }
     var decoder: JSONDecoder { get }
