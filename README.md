@@ -3,7 +3,7 @@ This test application was first of all developed, taking into account the future
 
 The application provides two schemes Rest and Mock. 
 
-Mock scheme is built on static data, simulating API requests
+Mock scheme is built on static data, simulating API requests.
 Rest scheme is designed to work with rest API, but I could not find a suitable one for implementation in the application.
 
 For better user experiance please to use Mock scheme to run.
