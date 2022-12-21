@@ -8,20 +8,9 @@
 import Foundation
 import Alamofire
 
+// MARK: - Networking Session
 open class NetworkingSession: NetworkingSessionProtocol {
-    private var baseURL: URL?
-
-    private let eventMonitor: BaseEventMonitor = .init()
-    private let requestInterceptor: BaseRequestInterceptor = .init()
-
-    private let rootQueue: DispatchQueue
-    private let requestQueue: DispatchQueue
-    private let serializationQueue: DispatchQueue
-    private let configuration: URLSessionConfiguration
-
-    private let authenticator = OAuthAuthenticator()
-    private var authInterceptor: AuthenticationInterceptor<OAuthAuthenticator>?
-
+    // MARK: - Public Properties
     public var authCredential: OAuthAuthenticator.OAuthCredential? {
         didSet {
             guard
@@ -35,6 +24,7 @@ open class NetworkingSession: NetworkingSessionProtocol {
         }
     }
 
+    // MARK: - Public Delegates
     public weak var authDelegate: OAuthAuthenticatorDelegate? {
         didSet {
             authenticator.delegate = authDelegate
@@ -47,11 +37,27 @@ open class NetworkingSession: NetworkingSessionProtocol {
         }
     }
 
+    // MARK: - Public Private(set) Properties
     public private(set) var sessionManager: Session
 
     public private(set) var decoder: JSONDecoder = JSONDecoder()
     public private(set) var encoder: JSONEncoder = JSONEncoder()
 
+    // MARK: - Private Properties
+    private var baseURL: URL?
+
+    private let eventMonitor: BaseEventMonitor = .init()
+    private let requestInterceptor: BaseRequestInterceptor = .init()
+
+    private let rootQueue: DispatchQueue
+    private let requestQueue: DispatchQueue
+    private let serializationQueue: DispatchQueue
+    private let configuration: URLSessionConfiguration
+
+    private let authenticator = OAuthAuthenticator()
+    private var authInterceptor: AuthenticationInterceptor<OAuthAuthenticator>?
+
+    // MARK: - Public Init
     public init(baseURL: String) {
         self.baseURL = URL(string: baseURL)
 
@@ -77,24 +83,11 @@ open class NetworkingSession: NetworkingSessionProtocol {
 
         self.commonSetup()
     }
+}
 
-    private func commonSetup() {
-        configurateDecoder()
-        configurateEncoder()
-    }
-
-    private func configurateDecoder() {
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        decoder.dateDecodingStrategy = .secondsSince1970
-    }
-
-    private func configurateEncoder() {
-        encoder.keyEncodingStrategy = .convertToSnakeCase
-        encoder.dateEncodingStrategy = .secondsSince1970
-        encoder.outputFormatting = .prettyPrinted
-    }
-
-    public func request(_ type: NetworkingRouterProtocol) -> DataRequest? {
+// MARK: - Public Functions
+public extension NetworkingSession {
+    func request(_ type: NetworkingRouterProtocol) -> DataRequest? {
         guard let baseURL = baseURL else { return nil }
 
         let parameters: Parameters? = type.parameters?.asDictionary(encoder: self.encoder)
@@ -109,7 +102,7 @@ open class NetworkingSession: NetworkingSessionProtocol {
         )
     }
 
-    public func objectfromData<T: Decodable>(_ data: Data) -> T? {
+    func objectfromData<T: Decodable>(_ data: Data) -> T? {
         do {
             let object = try self.decoder.decode(T.self, from: data)
             return object
@@ -119,7 +112,7 @@ open class NetworkingSession: NetworkingSessionProtocol {
         }
     }
 
-    public func responseData<T: Decodable>(_ response: AFDataResponse<Data>) -> Result<T, Error> {
+    func responseData<T: Decodable>(_ response: AFDataResponse<Data>) -> Result<T, Error> {
         let errorsKey: String = "errors"
 
         switch response.result {
@@ -158,6 +151,25 @@ open class NetworkingSession: NetworkingSessionProtocol {
             case .failure(let error):
                 return .failure(error)
         }
+    }
+}
+
+// MARK: - Private Functions
+extension NetworkingSession {
+    private func commonSetup() {
+        configurateDecoder()
+        configurateEncoder()
+    }
+
+    private func configurateDecoder() {
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .secondsSince1970
+    }
+
+    private func configurateEncoder() {
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        encoder.dateEncodingStrategy = .secondsSince1970
+        encoder.outputFormatting = .prettyPrinted
     }
 }
 

@@ -9,16 +9,21 @@ import UIKit
 import SnapKit
 
 class FilmViewCollectionViewCell: UICollectionViewCell {
+    private enum Constants {
+        static let defaultSpasing: CGFloat = 8
+        static let defaultCornerRadius: CGFloat = 4
+    }
+
     private lazy var contentStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
-        $0.spacing = 8
+        $0.spacing = Constants.defaultSpasing
     }
 
     private lazy var photoImageView: UIImageView = build {
         $0.backgroundColor = AppColors.gray.color
         $0.contentMode = .scaleToFill
 
-        $0.layer.cornerRadius = 4
+        $0.layer.cornerRadius = Constants.defaultCornerRadius
         $0.layer.masksToBounds = true
     }
 
@@ -51,11 +56,11 @@ class FilmViewCollectionViewCell: UICollectionViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.trailing.leading.top.equalToSuperview().inset(8)
+            make.trailing.leading.top.equalToSuperview().inset(Constants.defaultSpasing)
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.height.equalTo(self.bounds.height * 0.5)
+            make.height.equalTo(self.bounds.height.part50)
         }
     }
 

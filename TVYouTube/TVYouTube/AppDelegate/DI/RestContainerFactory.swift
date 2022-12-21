@@ -43,7 +43,6 @@ public class RestContainerFactory {
         container.register { [keychainStore] () -> StoreProtocol in keychainStore }
 
         // MARK: - Modules
-        // MARK: - Modules
         container.register { [mainAssembly] () -> MainModule.ModuleAssemblying in mainAssembly }
         container.register { [searchResultAssembly] () -> SearchResultModule.ModuleAssemblying in searchResultAssembly }
         container.register { [filmViewAssembly] () -> FilmViewCollectionModule.ModuleAssemblying in filmViewAssembly }

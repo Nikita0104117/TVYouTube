@@ -9,9 +9,14 @@ import UIKit
 import SnapKit
 
 class ActorCollectionViewCell: UICollectionViewCell {
+    private enum Constants {
+        static let defaulSpacing: CGFloat = 8
+        static let imageViewSize: CGFloat = 200
+    }
+
     private lazy var contentStackView: UIStackView = build {
         $0 <~ Style.Stack.defaultVerticalStack0
-        $0.spacing = 8
+        $0.spacing = Constants.defaulSpacing
         $0.contentMode = .center
         $0.distribution = .fillProportionally
     }
@@ -20,7 +25,7 @@ class ActorCollectionViewCell: UICollectionViewCell {
         $0.backgroundColor = AppColors.gray.color
         $0.contentMode = .scaleAspectFill
 
-        $0.layer.cornerRadius = 100
+        $0.layer.cornerRadius = Constants.imageViewSize.part50
         $0.layer.masksToBounds = true
     }
 
@@ -51,12 +56,12 @@ class ActorCollectionViewCell: UICollectionViewCell {
 
     private func makeConstraints() {
         contentStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(8)
+            make.edges.equalToSuperview().inset(Constants.defaulSpacing)
         }
 
         photoImageView.snp.makeConstraints { make in
-            make.width.equalTo(200)
-            make.height.equalTo(200)
+            make.width.equalTo(Constants.imageViewSize)
+            make.height.equalTo(Constants.imageViewSize)
         }
     }
 

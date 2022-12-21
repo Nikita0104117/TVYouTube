@@ -42,6 +42,7 @@ extension Presenter: Module.InteractorOutput {
     }
 
     func failure(with error: String?) {
+        dataSource = .init()
         controller?.showNetworking(error: error)
     }
 }

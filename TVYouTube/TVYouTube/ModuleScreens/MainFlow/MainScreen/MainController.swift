@@ -127,7 +127,7 @@ extension Controller: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reusebleId, for: indexPath) as? MainTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.reusableId, for: indexPath) as? MainTableViewCell
         else { return .init() }
 
         switch indexPath.section {

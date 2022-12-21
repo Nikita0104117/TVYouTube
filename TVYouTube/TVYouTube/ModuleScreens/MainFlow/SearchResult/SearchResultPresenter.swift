@@ -70,6 +70,7 @@ extension Presenter: Module.InteractorOutput {
     }
 
     func failure(with error: String?) {
+        originDataSource = .init()
         controller?.showNetworking(error: error)
     }
 }

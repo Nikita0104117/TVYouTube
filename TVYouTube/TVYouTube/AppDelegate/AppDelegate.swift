@@ -6,18 +6,11 @@
 //
 
 import UIKit
-import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        #if REST
-        RestContainerFactory(baseURL: ApiURLsPath.baseUrl.rawValue)
-        #else
-        MockContainerFactory()
-        #endif
-
-        IQKeyboardManager.shared.enable = true
+        HostManager().configurate()
 
         return true
     }

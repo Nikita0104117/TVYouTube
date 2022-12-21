@@ -83,24 +83,17 @@ extension Controller: Module.ControllerInput {
 }
 
 extension Controller: UICollectionViewDataSource, SkeletonCollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        output?.dataSource.count ?? 0
+        output?.dataSource.count ?? .zero
     }
 
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        FilmListCollectionViewCell.reusebleId
+        FilmListCollectionViewCell.reusableId
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: FilmListCollectionViewCell.reusebleId,
-                for: indexPath
-            ) as? FilmListCollectionViewCell,
+            let cell: FilmListCollectionViewCell = collectionView.dequeueReusableCell(indexPath),
             let product: ObjectEntity = output?.dataSource[safe: indexPath.item]
         else {
             return .init()
@@ -121,7 +114,11 @@ extension Controller: UICollectionViewDelegate {
 }
 
 extension Controller: UICollectionViewDelegateFlowLayout {
+    private enum Constants {
+        static let defaultHeight: CGFloat = 140
+    }
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: view.bounds.width * 0.7, height: 140)
+        .init(width: view.bounds.width.part70, height: Constants.defaultHeight)
     }
 }

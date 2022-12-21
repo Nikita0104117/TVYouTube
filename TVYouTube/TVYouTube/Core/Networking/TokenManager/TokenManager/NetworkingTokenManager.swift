@@ -10,11 +10,13 @@ import Alamofire
 import JWTDecode
 
 open class TokenManager {
+    // MARK: - Key Enum
     enum Keys: String {
         case accessToken
         case refreshToken
     }
 
+    // MARK: - Token Model
     public struct TokensModel: Codable {
         public var accessToken: String?
         public var refreshToken: String?
@@ -25,6 +27,7 @@ open class TokenManager {
         }
     }
 
+    // MARK: - Properties
     private let keychainStore: StoreProtocol
     private let rest: NetworkingSessionProtocol
 
@@ -43,48 +46,17 @@ open class TokenManager {
         )
     }
 
+    // MARK: - Init
     public init(rest: NetworkingSessionProtocol, keychainStore: StoreProtocol) {
         self.rest = rest
         self.keychainStore = keychainStore
 
         self.commonSetup()
     }
+}
 
-    private func commonSetup() {
-        self.rest.authDelegate = self as? OAuthAuthenticatorDelegate
-        self.rest.authCredential = authCredential
-    }
-
-    private func configAuthCredential(tokensModel: TokensModel) -> OAuthAuthenticator.OAuthCredential? {
-        guard
-            let accessToken = tokensModel.accessToken,
-            let expirationDate = expirationDate(token: accessToken)
-        else {
-            return nil
-        }
-
-        let authCredential: OAuthAuthenticator.OAuthCredential = .init(
-            accessToken: accessToken,
-            refreshToken: tokensModel.refreshToken ?? "",
-            expiration: expirationDate
-        )
-
-        self.keychainStore.set(accessToken, key: .accessToken)
-        self.keychainStore.set(tokensModel.refreshToken, key: .refreshToken)
-
-        return authCredential
-    }
-
-    private func expirationDate(token: String) -> Date? {
-        do {
-            let jwt = try decode(jwt: token)
-            return jwt.expiresAt
-        } catch let error {
-            debugPrint(error.localizedDescription)
-            return nil
-        }
-    }
-
+// MARK: - Public Functions
+public extension TokenManager {
     public func refreshTokenRequest(refreshToken: String?, completion: @escaping (Result<OAuthAuthenticator.OAuthCredential, Error>) -> Void) {
         guard
             let refreshToken = refreshToken,
@@ -121,6 +93,44 @@ open class TokenManager {
     }
 }
 
+// MARK: - Private Functions 
+extension TokenManager {
+    private func commonSetup() {
+        self.rest.authDelegate = self as? OAuthAuthenticatorDelegate
+        self.rest.authCredential = authCredential
+    }
+
+    private func configAuthCredential(tokensModel: TokensModel) -> OAuthAuthenticator.OAuthCredential? {
+        guard
+            let accessToken = tokensModel.accessToken,
+            let expirationDate = expirationDate(token: accessToken)
+        else {
+            return nil
+        }
+
+        let authCredential: OAuthAuthenticator.OAuthCredential = .init(
+            accessToken: accessToken,
+            refreshToken: tokensModel.refreshToken ?? "",
+            expiration: expirationDate
+        )
+
+        self.keychainStore.set(accessToken, key: .accessToken)
+        self.keychainStore.set(tokensModel.refreshToken, key: .refreshToken)
+
+        return authCredential
+    }
+
+    private func expirationDate(token: String) -> Date? {
+        do {
+            let jwt = try decode(jwt: token)
+            return jwt.expiresAt
+        } catch let error {
+            debugPrint(error.localizedDescription)
+            return nil
+        }
+    }
+}
+
 // MARK: - Token Protocol
 extension TokenManager: TokenProtocol {
     public func updateToken(_ tokens: TokensModel?) {
@@ -139,7 +149,6 @@ extension TokenManager: TokenProtocol {
 }
 
 // MARK: - Private Store Extension
-
 private extension StoreProtocol {
     func get<T: Decodable>(_ key: TokenManager.Keys) -> T? {
         self.get(key.rawValue)

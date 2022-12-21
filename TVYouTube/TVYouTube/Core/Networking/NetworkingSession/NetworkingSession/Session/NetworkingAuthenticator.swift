@@ -8,9 +8,12 @@
 import Foundation
 import Alamofire
 
+// MARK: - OAuth Authenticator
 public final class OAuthAuthenticator: Authenticator {
+    // MARK: - OAuth Authenticator Delegate
     public weak var delegate: OAuthAuthenticatorDelegate?
 
+    // MARK: - OAuth Credential
     public struct OAuthCredential: AuthenticationCredential {
         public let accessToken: String
         public let refreshToken: String
@@ -25,7 +28,10 @@ public final class OAuthAuthenticator: Authenticator {
         // Require refresh if within 5 minutes of expiration
         public var requiresRefresh: Bool { Date(timeIntervalSinceNow: 60 * 5) > expiration }
     }
+}
 
+// MARK: - Public Functions
+extension OAuthAuthenticator {
     public func apply(_ credential: OAuthCredential, to urlRequest: inout URLRequest) {
         delegate?.apply(credential, to: &urlRequest)
     }

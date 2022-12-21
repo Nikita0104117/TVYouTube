@@ -87,21 +87,17 @@ extension Controller: UITableViewDataSource, SkeletonTableViewDataSource, UITabl
         UITableView.automaticDimension
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        output?.dataSource.count ?? 0
+        output?.dataSource.count ?? .zero
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        SearchResultTableViewCell.reusebleId
+        SearchResultTableViewCell.reusableId
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultTableViewCell.reusebleId, for: indexPath) as? SearchResultTableViewCell,
+            let cell: SearchResultTableViewCell = tableView.dequeueReusableCell(indexPath),
             let product: ObjectEntity = output?.dataSource[safe: indexPath.item]
         else { return .init() }
 
